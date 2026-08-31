@@ -1,176 +1,216 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Тракторний Завод</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тракторний завод - мінітрактори та мототрактори ДМТЗ з доставкою по Україні</title>
+<meta name="description" content="Торговий дім «Тракторний завод»: мінітрактори й мототрактори ДМТЗ, навісне обладнання, запчастини. Збираємо, готуємо до видачі, доставляємо по Україні. Розстрочка, гарантія.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="%232f3850"/><g fill="none" stroke="%23f5a300" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="2.2"/><path d="M6 17V9h4l3 4h3.5a2.5 2.5 0 0 1 2.5 2.5V17"/><path d="M10 9V5h4"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<!-- TOP HEADER -->
-
-<div class="top-header py-2">
-    <div class="container">
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-3 text-center text-lg-start mb-3 mb-lg-0">
-
-                <img src="logo.png" class="logo img-fluid">
-
-            </div>
-
-            <div class="col-lg-9">
-
-                <!-- Верхнє меню -->
-
-                <ul class="nav justify-content-center justify-content-lg-start top-menu mb-3">
-
-                    <li class="nav-item"><a class="nav-link" href="#">Про компанію</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Доставка і оплата</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Розстрочка</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Оптовикам</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Гарантія</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Акції</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Статті</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Відео</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Контакти</a></li>
-
-                </ul>
-
-                <div class="row align-items-center g-3">
-
-                    <div class="col-lg text-center">
-
-                        <div class="phone">
-                            +38 (063) 000-00-00
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg text-center">
-
-                        <div class="phone main-phone">
-                            +38 (097) 106-63-23
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg text-center">
-
-                        <div class="phone">
-                            +38 (050) 000-00-00
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="row mt-3 align-items-center">
-
-                    <div class="col-lg-6 mb-3 mb-lg-0">
-
-                        <a href="#" class="btn consultation-btn w-100">
-                            Отримати консультацію
-                        </a>
-
-                    </div>
-
-                    <div class="col-lg-1 text-center mb-3 mb-lg-0">
-
-                        <a href="#">
-                            <i class="fab fa-viber viber"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="col-lg">
-
-                        <div class="input-group">
-
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Пошук">
-
-                            <button class="btn search-btn">
-
-                                <i class="fa fa-search"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-1 text-center">
-
-                        🇺🇦
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo-wrap">
+    <div class="logo-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="2.2"/><path d="M6 17V9h4l3 4h3.5a2.5 2.5 0 0 1 2.5 2.5V17"/><path d="M10 9V5h4"/><path d="M3 17h1"/></svg></div>
+    <div class="logo-text">
+      <div class="small">Торговий дім</div>
+      <div class="big">ТРАКТОРНИЙ<br>ЗАВОД</div>
     </div>
+  </div>
+  <div class="topbar-menu">
+    <a href="#">Про компанію</a>
+    <a href="#">Доставка і оплата</a>
+    <a href="#">Розстрочка</a>
+    <a href="#">Оптовикам</a>
+    <a href="#">Гарантії</a>
+    <a href="#">Акції</a>
+    <a href="#">Статті</a>
+    <a href="#">Відео</a>
+    <a href="#">Контакти</a>
+  </div>
+  <div class="topbar-contacts">
+    <div class="phones">
+      <a href="tel:+380634600018">(063) 460-00-18</a>
+      <a href="tel:+380971066323">(097) 106-63-23</a>
+      <a href="tel:+380505600018">(050) 560-00-18</a>
+    </div>
+    <div class="viber-btn" title="Viber"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></div>
+    <div class="search-box">
+      <input type="text" placeholder="Пошук по каталогу">
+      <button aria-label="Знайти"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
 </div>
 
-<!-- GREEN MENU -->
-
-<nav class="navbar navbar-expand-lg category-navbar">
-
-    <div class="container">
-
-        <button class="navbar-toggler bg-light"
-                data-bs-toggle="collapse"
-                data-bs-target="#menu">
-
-            ☰
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-
-            <ul class="navbar-nav mx-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Мінітрактори</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Мототрактори</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Навісне обладнання</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Запчастини</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
+<!-- NAV -->
+<nav class="mainnav">
+  <a href="#" class="active"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="2.2"/><path d="M6 17V9h4l3 4h3.5a2.5 2.5 0 0 1 2.5 2.5V17"/><path d="M10 9V5h4"/><path d="M3 17h1"/></svg> МІНІТРАКТОРИ</a>
+  <a href="#"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8 17h7.5l-2-6H10L8 17Z"/><path d="M13.5 11V7h3"/></svg> МОТОТРАКТОРИ</a>
+  <a href="#">НАВІСНЕ ОБЛАДНАННЯ</a>
+  <a href="#"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.9-1.5-2-3.4-2.3.7a7.6 7.6 0 0 0-2.6-1.5L14 2h-4l-.4 2.3a7.6 7.6 0 0 0-2.6 1.5l-2.3-.7-2 3.4L4.6 10a7.6 7.6 0 0 0 0 3l-1.9 1.5 2 3.4 2.3-.7c.8.7 1.6 1.2 2.6 1.5L10 22h4l.4-2.3c1-.3 1.8-.8 2.6-1.5l2.3.7 2-3.4-1.9-1.5Z"/></svg> ЗАПЧАСТИНИ</a>
 </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-tag">Сезонна акція</div>
+      <h1>ПРИМУСОВА ГІДРАВЛІКА</h1>
+      <ul class="hero-list">
+        <li>З блокуванням механізмів і гальмуванням</li>
+        <li>Рівна підлога у причепі</li>
+        <li>Швидка гума</li>
+        <li>Захист від сонця та дощу</li>
+      </ul>
+      <div class="hero-highlight">50-ТКА ЗА ЦІНОЮ 24-РКИ</div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-price">7 499&nbsp;$</div>
+      <div class="hero-badge">
+        <div class="factory">ТРАКТОРНИЙ<br>ЗАВОД</div>
+        <div class="gear"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.9-1.5-2-3.4-2.3.7a7.6 7.6 0 0 0-2.6-1.5L14 2h-4l-.4 2.3a7.6 7.6 0 0 0-2.6 1.5l-2.3-.7-2 3.4L4.6 10a7.6 7.6 0 0 0 0 3l-1.9 1.5 2 3.4 2.3-.7c.8.7 1.6 1.2 2.6 1.5L10 22h4l.4-2.3c1-.3 1.8-.8 2.6-1.5l2.3.7 2-3.4-1.9-1.5Z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- CATALOG -->
+<main class="products">
+  <div class="product-grid" id="featured-grid"></div>
+
+  <div class="section-title" id="other-title" hidden>ІНШІ МОДЕЛІ</div>
+  <div class="product-grid" id="other-grid"></div>
+</main>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews-inner">
+    <div>
+      <h3>Відгуки наших клієнтів</h3>
+      <div class="review">
+        <p>Брав ДМТЗ 354 під обробіток трьох гектарів. Вагався довго, поки не доїхав до них подивитися живцем - зібрали при мені, показали, як усе працює. За тиждні віддали повністю готового, з документами. Другий сезон орить без проблем, заводиться і в спеку, і в холод. Є дрібні зауваження до обваження, але за свої гроші - норм.</p>
+        <div class="review-author">
+          <span class="avatar">С</span>
+          <div>
+            <div class="name">Сергій, Полтавщина</div>
+            <div class="date">15.03.2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <p>Замовляв ДМТЗ 244 для невеликої ферми. Спершу перелякався ціни на доставку, але менеджер одразу сказав, скільки коштує і коли приїде - без «подивимось по ходу». Приїхав на тиждень раніше терміну. З першого дня орав і фрезою їздив. Двигун тягне заявлене, пальне не їсть більше, ніж писали.</p>
+        <div class="review-author">
+          <span class="avatar">Л</span>
+          <div>
+            <div class="name">Леонід, Черкащина</div>
+            <div class="date">09.03.2026</div>
+          </div>
+        </div>
+      </div>
+      <a class="all-link" href="#">усі відгуки →</a>
+    </div>
+    <div>
+      <h3>Відео відгуки</h3>
+      <div class="video-review">
+        <img src="images/dmtz-354/2.webp" alt="Відео відгук">
+        <div class="play-btn"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg></div>
+      </div>
+      <a class="all-link" href="#">усі відео →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<div class="news-section">
+  <div class="news-tab">НОВИНИ</div>
+  <div class="news-item">
+    <a href="#">Офіційний канал компанії ДМТЗ у Viber</a>
+  </div>
+</div>
+
+<!-- VIBER BANNER -->
+<div class="viber-banner">
+  <div class="text">
+    <h2>ПІДПИСУЙСЯ НА НАШ КАНАЛ У VIBER</h2>
+    <p>Першим дізнавайся про сезонні акції та знижки</p>
+  </div>
+  <div class="viber-banner-right">
+    <div class="viber-icon-big"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></div>
+    <div class="viber-phone-mock">
+      <div class="screen">
+        <div class="time">23:30</div>
+        <div class="channel">ТРАКТОРНИЙ<br>ЗАВОД</div>
+        <div class="cta">ОТРИМАТИ КОНСУЛЬТАЦІЮ</div>
+        <div class="chips">
+          <div>МІНІТРАКТОРИ</div>
+          <div>МОТОТРАКТОРИ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP + CONTACT -->
+<div class="map-section">
+  <iframe class="map-frame" title="Ми на карті" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%D0%92%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B0%209%2C%20%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE&z=16&output=embed"></iframe>
+  <div class="contact-block">
+    <a class="phone" href="tel:+380971066323">(097) 106-63-23</a>
+    <div class="pin-circle"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.5 7-12.5A7 7 0 0 0 5 9.5C5 14.5 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.3"/></svg></div>
+    <div class="addr">
+      <b>Наша адреса:</b><br>
+      Україна, м. Дніпро<br>
+      вул. Краснопільська, 9
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <div class="ico"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="2.2"/><path d="M6 17V9h4l3 4h3.5a2.5 2.5 0 0 1 2.5 2.5V17"/><path d="M10 9V5h4"/><path d="M3 17h1"/></svg></div>
+        <div>ТРАКТОРНИЙ<br>ЗАВОД</div>
+      </div>
+      <p class="footer-note">Мінітрактори та мототрактори ДМТЗ.<br>Збір, підготовка й доставка по всій Україні.</p>
+    </div>
+    <div>
+      <h4>ІНФОРМАЦІЯ</h4>
+      <ul>
+        <li><a href="#">Про «ТД Тракторний завод»</a></li>
+        <li><a href="#">Оптовикам</a></li>
+        <li><a href="#">Новини</a></li>
+        <li><a href="#">Акції</a></li>
+        <li><a href="#">Контакти</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>ПОКУПЦЯМ</h4>
+      <ul>
+        <li><a href="#">Доставка і оплата</a></li>
+        <li><a href="#">Кредитування</a></li>
+        <li><a href="#">Відгуки</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>КАТАЛОГ</h4>
+      <ul>
+        <li><a href="#">Мінітрактори</a></li>
+        <li><a href="#">Мототрактори</a></li>
+        <li><a href="#">Навісне обладнання</a></li>
+        <li><a href="#">Запчастини</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Торговий дім «Тракторний завод». Всі права захищено.</div>
+</footer>
+
+<script src="products.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
