@@ -23,15 +23,15 @@
     </div>
   </div>
   <div class="topbar-menu">
-    <a href="#">Про компанію</a>
-    <a href="#">Доставка і оплата</a>
-    <a href="#">Розстрочка</a>
-    <a href="#">Оптовикам</a>
-    <a href="#">Гарантії</a>
-    <a href="#">Акції</a>
-    <a href="#">Статті</a>
-    <a href="#">Відео</a>
-    <a href="#">Контакти</a>
+    <a href="#about">Про компанію</a>
+    <a href="#" data-soon="Сторінка «Доставка і оплата» у розробці">Доставка і оплата</a>
+    <a href="#" data-soon="Сторінка «Розстрочка» у розробці">Розстрочка</a>
+    <a href="#" data-soon="Сторінка «Оптовикам» у розробці">Оптовикам</a>
+    <a href="#" data-soon="Сторінка «Гарантії» у розробці">Гарантії</a>
+    <a href="#promo">Акції</a>
+    <a href="#" data-soon="Сторінка «Статті» у розробці">Статті</a>
+    <a href="#" data-soon="Відео з’являться найближчим часом">Відео</a>
+    <a href="#contacts">Контакти</a>
   </div>
   <div class="topbar-contacts">
     <div class="phones">
@@ -39,7 +39,7 @@
       <a href="tel:+380971066323">(097) 106-63-23</a>
       <a href="tel:+380505600018">(050) 560-00-18</a>
     </div>
-    <div class="viber-btn" title="Viber"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></div>
+    <a class="viber-btn" href="viber://chat?number=%2B380971066323" aria-label="Написати у Viber" title="Viber"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></a>
     <div class="search-box">
       <input type="text" placeholder="Пошук по каталогу">
       <button aria-label="Знайти"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
@@ -47,16 +47,8 @@
   </div>
 </div>
 
-<!-- NAV -->
-<nav class="mainnav">
-  <a href="#" class="active"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="2.2"/><path d="M6 17V9h4l3 4h3.5a2.5 2.5 0 0 1 2.5 2.5V17"/><path d="M10 9V5h4"/><path d="M3 17h1"/></svg> МІНІТРАКТОРИ</a>
-  <a href="#"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8 17h7.5l-2-6H10L8 17Z"/><path d="M13.5 11V7h3"/></svg> МОТОТРАКТОРИ</a>
-  <a href="#">НАВІСНЕ ОБЛАДНАННЯ</a>
-  <a href="#"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.9-1.5-2-3.4-2.3.7a7.6 7.6 0 0 0-2.6-1.5L14 2h-4l-.4 2.3a7.6 7.6 0 0 0-2.6 1.5l-2.3-.7-2 3.4L4.6 10a7.6 7.6 0 0 0 0 3l-1.9 1.5 2 3.4 2.3-.7c.8.7 1.6 1.2 2.6 1.5L10 22h4l.4-2.3c1-.3 1.8-.8 2.6-1.5l2.3.7 2-3.4-1.9-1.5Z"/></svg> ЗАПЧАСТИНИ</a>
-</nav>
-
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="promo">
   <div class="hero-inner">
     <div class="hero-copy">
       <div class="hero-tag">Сезонна акція</div>
@@ -70,7 +62,7 @@
       <div class="hero-highlight">50-ТКА ЗА ЦІНОЮ 24-РКИ</div>
     </div>
     <div class="hero-side">
-      <div class="hero-price">7 499&nbsp;$</div>
+      <a class="hero-price" href="#catalog" title="До каталогу">7 499&nbsp;$</a>
       <div class="hero-badge">
         <div class="factory">ТРАКТОРНИЙ<br>ЗАВОД</div>
         <div class="gear"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.9-1.5-2-3.4-2.3.7a7.6 7.6 0 0 0-2.6-1.5L14 2h-4l-.4 2.3a7.6 7.6 0 0 0-2.6 1.5l-2.3-.7-2 3.4L4.6 10a7.6 7.6 0 0 0 0 3l-1.9 1.5 2 3.4 2.3-.7c.8.7 1.6 1.2 2.6 1.5L10 22h4l.4-2.3c1-.3 1.8-.8 2.6-1.5l2.3.7 2-3.4-1.9-1.5Z"/></svg></div>
@@ -80,7 +72,7 @@
 </div>
 
 <!-- CATALOG -->
-<main class="products">
+<main class="products" id="catalog">
   <div class="product-grid" id="featured-grid"></div>
 
   <div class="section-title" id="other-title" hidden>ІНШІ МОДЕЛІ</div>
@@ -88,7 +80,7 @@
 </main>
 
 <!-- REVIEWS -->
-<section class="reviews">
+<section class="reviews" id="reviews">
   <div class="reviews-inner">
     <div>
       <h3>Відгуки наших клієнтів</h3>
@@ -112,35 +104,33 @@
           </div>
         </div>
       </div>
-      <a class="all-link" href="#">усі відгуки →</a>
+      <a class="all-link" href="#" data-soon="Сторінка з усіма відгуками у розробці">усі відгуки →</a>
     </div>
     <div>
-      <h3>Відео відгуки</h3>
+      <h3>Фото з поля</h3>
       <div class="video-review">
-        <img src="images/dmtz-354/2.webp" alt="Відео відгук">
-        <div class="play-btn"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg></div>
+        <img src="img/dmtz-354/2.webp" alt="Фото відгук клієнта">
       </div>
-      <a class="all-link" href="#">усі відео →</a>
     </div>
   </div>
 </section>
 
 <!-- NEWS -->
-<div class="news-section">
+<div class="news-section" id="news">
   <div class="news-tab">НОВИНИ</div>
   <div class="news-item">
-    <a href="#">Офіційний канал компанії ДМТЗ у Viber</a>
+    <a href="viber://chat?number=%2B380971066323">Офіційний канал компанії ДМТЗ у Viber</a>
   </div>
 </div>
 
 <!-- VIBER BANNER -->
-<div class="viber-banner">
+<div class="viber-banner" id="viber">
   <div class="text">
     <h2>ПІДПИСУЙСЯ НА НАШ КАНАЛ У VIBER</h2>
     <p>Першим дізнавайся про сезонні акції та знижки</p>
   </div>
   <div class="viber-banner-right">
-    <div class="viber-icon-big"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></div>
+    <a class="viber-icon-big" href="viber://chat?number=%2B380971066323" aria-label="Написати у Viber"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></a>
     <div class="viber-phone-mock">
       <div class="screen">
         <div class="time">23:30</div>
@@ -156,7 +146,7 @@
 </div>
 
 <!-- MAP + CONTACT -->
-<div class="map-section">
+<div class="map-section" id="contacts">
   <iframe class="map-frame" title="Ми на карті" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%D0%92%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B0%209%2C%20%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE&z=16&output=embed"></iframe>
   <div class="contact-block">
     <a class="phone" href="tel:+380971066323">(097) 106-63-23</a>
@@ -170,7 +160,7 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
+<footer id="about">
   <div class="footer-inner">
     <div>
       <div class="footer-logo">
@@ -182,28 +172,28 @@
     <div>
       <h4>ІНФОРМАЦІЯ</h4>
       <ul>
-        <li><a href="#">Про «ТД Тракторний завод»</a></li>
-        <li><a href="#">Оптовикам</a></li>
-        <li><a href="#">Новини</a></li>
-        <li><a href="#">Акції</a></li>
-        <li><a href="#">Контакти</a></li>
+        <li><a href="#about">Про «ТД Тракторний завод»</a></li>
+        <li><a href="#" data-soon="Сторінка «Оптовикам» у розробці">Оптовикам</a></li>
+        <li><a href="#news">Новини</a></li>
+        <li><a href="#promo">Акції</a></li>
+        <li><a href="#contacts">Контакти</a></li>
       </ul>
     </div>
     <div>
       <h4>ПОКУПЦЯМ</h4>
       <ul>
-        <li><a href="#">Доставка і оплата</a></li>
-        <li><a href="#">Кредитування</a></li>
-        <li><a href="#">Відгуки</a></li>
+        <li><a href="#" data-soon="Сторінка «Доставка і оплата» у розробці">Доставка і оплата</a></li>
+        <li><a href="#" data-soon="Сторінка «Кредитування» у розробці">Кредитування</a></li>
+        <li><a href="#reviews">Відгуки</a></li>
       </ul>
     </div>
     <div>
       <h4>КАТАЛОГ</h4>
       <ul>
-        <li><a href="#">Мінітрактори</a></li>
-        <li><a href="#">Мототрактори</a></li>
-        <li><a href="#">Навісне обладнання</a></li>
-        <li><a href="#">Запчастини</a></li>
+        <li><a href="#catalog">Мінітрактори</a></li>
+        <li><a href="#catalog">Мототрактори</a></li>
+        <li><a href="#catalog">Навісне обладнання</a></li>
+        <li><a href="#catalog">Запчастини</a></li>
       </ul>
     </div>
   </div>
