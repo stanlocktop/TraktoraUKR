@@ -1,12 +1,17 @@
-const CLOSE_ICON = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 const ARROW_ICON = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>';
 const FALLBACK_IMG = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#3f4a63"/><text x="200" y="155" font-family="Arial" font-size="18" fill="#fff" text-anchor="middle">Фото немає</text></svg>');
 const CALL_PHONE = 'tel:+380971066323';
 const VIBER_LINK = 'viber://chat?number=%2B380971066323';
 
 let PRODUCTS = [];
-let modalState = { images: [], index: 0 };
 let searchQuery = '';
+let categoryFilter = 'all';
+const FILTER_LABELS = {
+  all: 'Усі моделі',
+  tractor: 'Трактори',
+  minitractor: 'Мінітрактори',
+  mototractor: 'Мототрактори'
+};
 
 function formatPrice(value, currency) {
   return new Intl.NumberFormat('uk-UA').format(value) + ' ' + currency;
@@ -51,89 +56,18 @@ function getGallery(product) {
   return product.gallery && product.gallery.length ? product.gallery : [product.image];
 }
 
-function openModal(product) {
-  modalState.images = getGallery(product);
-  modalState.index = 0;
-
-  const badgesHtml = product.badges && product.badges.length
-    ? product.badges.map(b => `<span class="${badgeClass(b.type)}">${b.text}</span>`).join('')
-    : '';
-
-  const ctaLabel = product.priceOnRequest ? 'Уточнити ціну' : 'Замовити';
-
-  let overlay = document.getElementById('product-modal');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'product-modal';
-    overlay.className = 'modal-overlay';
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) closeModal();
-    });
-    document.body.appendChild(overlay);
-  }
-
-  overlay.innerHTML = `
-    <div class="modal">
-      <button class="modal-close" aria-label="Закрити">${CLOSE_ICON}</button>
-      <div class="modal-gallery">
-        <div class="modal-main">
-          ${modalState.images.length > 1 ? `<button class="modal-arrow prev" aria-label="Попереднє фото">${ARROW_ICON}</button>` : ''}
-          <img id="modal-main-img" src="${modalState.images[0]}" alt="${product.name}" decoding="async" onerror="this.onerror=null;this.src=FALLBACK_IMG;">
-          ${modalState.images.length > 1 ? `<button class="modal-arrow next" aria-label="Наступне фото">${ARROW_ICON}</button>` : ''}
-        </div>
-        ${modalState.images.length > 1 ? `
-        <div class="modal-thumbs">
-          ${modalState.images.map((img, i) => `<img src="${img}" class="modal-thumb${i === 0 ? ' active' : ''}" data-index="${i}" alt="Фото ${i + 1}" loading="lazy" decoding="async" onerror="this.style.display='none';">`).join('')}
-        </div>` : ''}
-      </div>
-      <div class="modal-info">
-        <div class="modal-badges">${badgesHtml}</div>
-        <div class="modal-title">${product.name}</div>
-        <div class="modal-price">${priceHtml(product)}</div>
-        <div class="modal-desc">${product.description || ''}</div>
-        <div class="modal-cta">
-          <a class="btn-call" href="${CALL_PHONE}">${ctaLabel}</a>
-          <a class="btn-viber" href="${VIBER_LINK}">Написати у Viber</a>
-        </div>
-      </div>
-    </div>`;
-
-  overlay.querySelector('.modal-close').addEventListener('click', closeModal);
-  const prev = overlay.querySelector('.modal-arrow.prev');
-  const next = overlay.querySelector('.modal-arrow.next');
-  if (prev) prev.addEventListener('click', () => showSlide(modalState.index - 1));
-  if (next) next.addEventListener('click', () => showSlide(modalState.index + 1));
-  overlay.querySelectorAll('.modal-thumb').forEach(t => {
-    t.addEventListener('click', () => showSlide(+t.dataset.index));
-  });
-
-  document.body.style.overflow = 'hidden';
-  overlay.classList.add('open');
-}
-
-function showSlide(i) {
-  const n = modalState.images.length;
-  modalState.index = (i + n) % n;
-  const overlay = document.getElementById('product-modal');
-  overlay.querySelector('#modal-main-img').src = modalState.images[modalState.index];
-  overlay.querySelectorAll('.modal-thumb').forEach((t, ti) => {
-    t.classList.toggle('active', ti === modalState.index);
-  });
-}
-
-function closeModal() {
-  const overlay = document.getElementById('product-modal');
-  if (overlay) overlay.classList.remove('open');
-  document.body.style.overflow = '';
+function productUrl(product) {
+  return 'product.html?id=' + encodeURIComponent(product.id);
 }
 
 function bindCardClicks() {
   document.querySelectorAll('.card').forEach(card => {
     const product = PRODUCTS.find(p => p.id === card.dataset.id);
     if (!product) return;
-    card.addEventListener('click', () => openModal(product));
+    const go = () => { location.href = productUrl(product); };
+    card.addEventListener('click', go);
     card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(product); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
     });
   });
 }
@@ -143,23 +77,30 @@ function renderCatalog() {
   const otherGrid = document.getElementById('other-grid');
   const otherTitle = document.getElementById('other-title');
 
-  if (searchQuery) {
-    const matches = PRODUCTS.filter(p => p.name.toLowerCase().includes(searchQuery));
-    featuredGrid.innerHTML = matches.length
-      ? matches.map(renderCard).join('')
-      : `<div class="empty-placeholder">Нічого не знайдено за запитом «${escapeHtml(searchQuery)}».</div>`;
+  const list = PRODUCTS.filter(p =>
+    (categoryFilter === 'all' || p.category === categoryFilter) &&
+    (!searchQuery || p.name.toLowerCase().includes(searchQuery))
+  );
+
+  const flat = Boolean(searchQuery) || categoryFilter !== 'all';
+
+  if (flat) {
+    featuredGrid.innerHTML = list.length
+      ? list.map(renderCard).join('')
+      : `<div class="empty-placeholder">${
+          searchQuery
+            ? `Нічого не знайдено за запитом «${escapeHtml(searchQuery)}».`
+            : 'У цій категорії поки немає моделей.'
+        }</div>`;
     otherGrid.innerHTML = '';
     otherTitle.hidden = true;
     bindCardClicks();
     return;
   }
 
-  const featured = PRODUCTS.filter(p => p.featured);
-  const other = PRODUCTS.filter(p => !p.featured);
-
-  featuredGrid.innerHTML = featured.map(renderCard).join('');
-  otherGrid.innerHTML = other.map(renderCard).join('');
-  otherTitle.hidden = other.length === 0;
+  featuredGrid.innerHTML = list.filter(p => p.featured).map(renderCard).join('');
+  otherGrid.innerHTML = list.filter(p => !p.featured).map(renderCard).join('');
+  otherTitle.hidden = list.filter(p => !p.featured).length === 0;
 
   if (!PRODUCTS.length) {
     featuredGrid.innerHTML = '<div class="empty-placeholder">Моделі з’являться в каталозі найближчим часом.</div>';
@@ -169,6 +110,7 @@ function renderCatalog() {
 
 function loadProducts() {
   const featuredGrid = document.getElementById('featured-grid');
+  if (!featuredGrid) return;
   try {
     if (typeof PRODUCTS_DATA === 'undefined') throw new Error('catalog missing');
     PRODUCTS = PRODUCTS_DATA.products || [];
@@ -182,10 +124,30 @@ function initSearch() {
   const input = document.querySelector('.search-box input');
   const btn = document.querySelector('.search-box button');
   if (!input) return;
+
+  const hasGrid = Boolean(document.getElementById('featured-grid'));
+
+  if (!hasGrid) {
+    const go = () => {
+      const q = input.value.trim();
+      location.href = 'index.html' + (q ? '?q=' + encodeURIComponent(q) : '') + '#catalog';
+    };
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+    if (btn) btn.addEventListener('click', e => { e.preventDefault(); go(); });
+    return;
+  }
+
   const apply = () => {
     searchQuery = input.value.trim().toLowerCase();
     renderCatalog();
   };
+
+  const incoming = new URLSearchParams(location.search).get('q');
+  if (incoming) {
+    input.value = incoming;
+    searchQuery = incoming.toLowerCase();
+  }
+
   input.addEventListener('input', apply);
   if (btn) btn.addEventListener('click', e => { e.preventDefault(); apply(); });
   input.addEventListener('keydown', e => {
@@ -194,6 +156,43 @@ function initSearch() {
       searchQuery = '';
       renderCatalog();
     }
+  });
+}
+
+function initFilter() {
+  const root = document.getElementById('catalog-filter');
+  if (!root) return;
+  const btn = root.querySelector('.filter-btn');
+  const menu = root.querySelector('.filter-menu');
+  const label = root.querySelector('.filter-label');
+  const options = Array.from(menu.querySelectorAll('li'));
+
+  const close = () => {
+    root.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = root.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  options.forEach(li => {
+    li.addEventListener('click', () => {
+      categoryFilter = li.dataset.value;
+      options.forEach(x => x.classList.toggle('active', x === li));
+      label.textContent = FILTER_LABELS[categoryFilter] || li.firstChild.textContent.trim();
+      close();
+      renderCatalog();
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (!root.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
   });
 }
 
@@ -220,14 +219,13 @@ document.addEventListener('click', e => {
   }
 });
 
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('product-modal')?.classList.contains('open')) return;
-  if (e.key === 'Escape') closeModal();
-  if (e.key === 'ArrowLeft') showSlide(modalState.index - 1);
-  if (e.key === 'ArrowRight') showSlide(modalState.index + 1);
+document.addEventListener('click', e => {
+  const logo = e.target.closest('.logo-icon, .footer-logo .ico');
+  if (logo) location.href = 'index.html';
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   loadProducts();
   initSearch();
+  initFilter();
 });
